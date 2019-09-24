@@ -12,11 +12,9 @@ export class Parent1Component implements OnInit {
 
   ngOnInit() {
     console.log('arnab');
-    this.route.params.subscribe((params: Params) => {
-      // tslint:disable-next-line: no-string-literal
-      this.user.id = params['id'];
-      // tslint:disable-next-line: no-string-literal
-      this.user.name = params['name'];
+    this.route.params.subscribe(({ id, name }) => {
+      this.user = { id, name };
+      console.log('Fired from parent1');
     });
   }
 }
